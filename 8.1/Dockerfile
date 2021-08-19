@@ -1,6 +1,6 @@
 # HDCore extended docker images
 ARG VERSION=8.1
-FROM php:${VERSION}-rc
+FROM php:${VERSION}.0beta2
 ARG VERSION
 
 # Labels
