@@ -5,6 +5,9 @@ services:
     build:
       context: .
       dockerfile: 7.4/Dockerfile
+#    environment: 
+#      - COMPOSER_GITLAB_TOKEN=xxxxx
+#      - COMPOSER_GITHUB_TOKEN=xxxxx
   local-php8.0-run:
 #    image: local-php-run:8.0
     build:

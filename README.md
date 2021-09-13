@@ -6,9 +6,7 @@ For use in Dockerfile or docker-compose.yml
 
 ```
 FROM hdcore/docker-php:7.4
-
 FROM hdcore/docker-php:8.0
-
 FROM hdcore/docker-php:8.1
 ```
 
@@ -20,11 +18,8 @@ FROM hdcore/docker-php:8.1
 
 ```bash
 docker-compose build
-
 docker-compose build local-php7.4-run
-
 docker-compose build local-php8.0-run
-
 docker-compose build local-php8.1-run
 ```
 
@@ -32,9 +27,7 @@ docker-compose build local-php8.1-run
 
 ```bash
 docker image build . -f .\7.4\Dockerfile -t local-php7.4-run --build-arg http_proxy=http://proxy.url:8080 --rm --progress plain
-
 docker image build . -f .\8.0\Dockerfile -t local-php8.0-run --build-arg http_proxy=http://proxy.url:8080 --rm --progress plain
-
 docker image build . -f .\8.1\Dockerfile -t local-php8.1-run --build-arg http_proxy=http://proxy.url:8080 --rm --progress plain
 ```
 
@@ -44,21 +37,30 @@ docker image build . -f .\8.1\Dockerfile -t local-php8.1-run --build-arg http_pr
 
 ```bash
 docker-compose run --rm local-php7.4-run
-
 docker-compose run --rm local-php8.0-run
-
 docker-compose run --rm local-php8.1-run
 ```
 
 ### Add proxy on startup
-- Add environment variable http_proxy.
+Add environment variable:
+- http_proxy (lowercase)
 
 ### Add extra CA certificates on startup
-- Add the *.crt to the /certificates/ folder.
-- Add CACERT_FILE_XXXX environment variable who points to local filename
+Add the *.crt to the /certificates/ folder.
+Add CACERT_FILE_XXXX environment variable who points to local filename
 
 ### Add extra SSH KEY
-- Add environment variable SSH_PRIVATE_KEY
+Add environment variable:
+- SSH_PRIVATE_KEY
+
+### Add composer access tokens
+
+Add environment variable(s):
+- COMPOSER_GITHUB_TOKEN
+- COMPOSER_GITLAB_TOKEN
+
+Then call:
+- run-composer-install.sh \<optional composer cmdline args\>
 
 ## Scripts
 
